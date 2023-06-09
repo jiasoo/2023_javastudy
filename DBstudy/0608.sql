@@ -380,3 +380,45 @@ BEGIN
 avg_price(a_val);
 dbms_output.put_line('책 평균금액 : '|| trunc(a_val));
 END;
+-- bookid를 입력받아서 책이름, 가격을 출력하는 프로시저 (방법1)
+create PROCEDURE book_test01(p_id book.bookid%type,
+    v_name out book.bookname%type, v_price out book.price%type)as
+BEGIN
+    select bookname, price 
+    into v_name, v_price
+    from book
+    where bookid = p_id;
+    
+END;
+
+-- exec book_test01(3,);
+DECLARE
+k_book book.bookname%type;
+k_price book.price%type;
+BEGIN
+-- 프로시저를 호출
+book_test01(3, k_book, k_price);
+dbms_output.put_line('책 이름 : ' || k_book);
+dbms_output.put_line('책 가격 : ' || k_price);
+end;
+-- bookid를 입력받아서 책이름, 가격을 출력하는 프로시저 (방법2)
+create PROCEDURE book_test2(v_id book.bookid%type)as
+v_name book.bookname%type;
+v_price book.price%type;
+BEGIN
+    select bookname, price
+    into v_name, v_price
+    from book
+    where bookid = v_id;
+    
+    dbms_output.put_line('책 이름 : ' || v_name);
+    dbms_output.put_line('책 가격 : ' || v_price);
+    
+    exception
+        when no_data_found then
+        dbms_output.put_line('bookid 가 존재하지 않습니다.');
+        when others then
+        dbms_output.put_line('오류방생');
+end;
+--실행
+exec book_test2(17);

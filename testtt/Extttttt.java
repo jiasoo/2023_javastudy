@@ -1,51 +1,52 @@
 package testtt;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
+import java.awt.GridLayout;
 
-public class Extttttt {
-	public static void main(String[] args) {
-		OutputStreamWriter osw = null;
-		BufferedWriter bw = null;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class Extttttt extends JFrame{
+	JPanel jp1,jp2,jp3,jp4,jp5,jp6;
+	JButton jb1,jb2,jb3,jb4;
+	JTextField jtf1,jtf2,jtf3,jtf4;
+	JTextArea jta;
+	JScrollPane jsp;
+	public Extttttt() {
+		super("DB 연동 정보");
+		jp1 = new JPanel(new GridLayout(0, 2));
+		jp2 = new JPanel(new GridLayout(0, 2));
+		jp3 = new JPanel(new GridLayout(0, 2));
+		jp4 = new JPanel(new GridLayout(0, 2));
+		jp5 = new JPanel(new GridLayout(4, 2));
+		jp6 = new JPanel();
 		
-		InputStreamReader isr = null;
-		BufferedReader br = null;
-		
-		try {
-			//System.out.println("원하는 문자 :")
-			//모니터에 정보를 내보내자
-			
-			osw = new OutputStreamWriter(System.out);
-			bw = new BufferedWriter(osw);
-			bw.write("원하는 문자 : ");
-			bw.flush();
-			
-			// 키보드를 통해서 정보를 입력 받기
-			isr = new InputStreamReader(System.in);
-			br = new BufferedReader(isr);
-			String msg = br.readLine();
-			
-			// 반은 정보 출력
-			bw.write("받은 문자 : ");
-			bw.flush();
-			
-		} catch (Exception e) {
-		}finally {
-			try {
-				br.close();
-				isr.close();
-				bw.close();
-				osw.close();				
-			} catch (Exception e2) {
 	
-			}
-		}
+		jtf1 = new JTextField();
+		jtf2 = new JTextField();
+		jtf3 = new JTextField();
+		jtf4 = new JTextField();
 		
+		jb1= new JButton("전체보기");
+		jb2= new JButton("삽입");
+		jb3= new JButton("삭제");
+		jb4= new JButton("검색");
+		
+		
+		
+		
+		setSize(600, 400);
+		setLocationRelativeTo(null);
+		setResizable(false);
+		setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+
 	}
-	
+	public static void main(String[] args) {
+		new Extttttt();
+
+	}
 }
