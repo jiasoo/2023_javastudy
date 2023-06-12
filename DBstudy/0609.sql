@@ -182,7 +182,7 @@ select *from customer_del order by custid;
 update customer set name = '강진리', address = '스페인 마요르카' where custid=21;
 
 -- customer에 삭제된 인원은 customer_del 에 정보를 넣어주자
--- customer 체이블과 같은 구조의 customer_del 테이블을 만들자
+-- customer 테이블과 같은 구조의 customer_del 테이블을 만들자
 create table customer_del as select * from customer where 1=0;
 -- customer_del테이블에 삭제 날짜를 기억하는 컬럼을 추가하자.
 alter table customer_del add del_date date;

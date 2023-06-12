@@ -49,7 +49,7 @@ set SERVEROUTPUT on;
 
  -- 변수 i가 홀수 인지 짝수 인지 판별하는 프로시져 
     DECLARE
-        i number :=57;
+        i number :=28;
     BEGIN
         if(mod(i,2)=0) then
             dbms_output.put_line('i' || i || '짝수이다.');

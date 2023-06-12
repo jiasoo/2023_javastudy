@@ -67,7 +67,7 @@ public class Ex02_DAO {
 	public int getInsert(Ex02_VO vo) {
 		try {
 			conn = getConnection();			
-			String sql = "insert into customer(custid, name, addredss, phon) values(?,?,?)";
+			String sql = "insert into customer(custid, name, address, phon) values(?,?,?)";
 			pstm = conn.prepareStatement(sql);
 			pstm.setString(1, vo.getCustid());
 			pstm.setString(2, vo.getName());
