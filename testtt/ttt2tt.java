@@ -2,6 +2,8 @@ package testtt;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JButton;
@@ -22,14 +24,16 @@ public class ttt2tt extends JFrame{
 	
 	public ttt2tt() {
 		super("관광지 관리");
-		jp1 = new JPanel();
+		jp1 = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		jp2 = new JPanel();
 		
 		jp3 = new JPanel(new GridLayout(0,2));
 		jp4 = new JPanel(new GridLayout(0,2));
 		jp5 = new JPanel(new GridLayout(0,2));
 		jp6 = new JPanel(new GridLayout(0,2));
-		jp7 = new JPanel();
+		jp7 = new JPanel(new GridLayout(15,0));
+		//jp8 = new JPanel();
+	
 		
 		jb1 = new JButton("관광지");
 		jb2 = new JButton("사용자");
@@ -45,20 +49,19 @@ public class ttt2tt extends JFrame{
 		jtf3 = new JTextField();
 		jtf4 = new JTextField();
 		
-		Container con = getContentPane();
-		GridLayout grd = new GridLayout(4,2);
+	
 		
-		con.add(new JLabel("* CUSTID  :  "));
-		con.add(jtf1);
+		jp3.add(new JLabel("CUSTID  :  ", JLabel.CENTER));
+		jp3.add(jtf1);
 
-		con.add(new JLabel("NAME  :  "));
-		con.add(jtf2);
+		jp4.add(new JLabel("NAME  :  ", JLabel.CENTER));
+		jp4.add(jtf2);
 
-		con.add(new JLabel("ADDRESS  :  "));
-		con.add(jtf3);
+		jp5.add(new JLabel("ADDRESS  :  ", JLabel.CENTER));
+		jp5.add(jtf3);
 
-		con.add(new JLabel("PHONE  :  "));
-		con.add(jtf4);
+		jp6.add(new JLabel("PHONE  :  ", JLabel.CENTER));
+		jp6.add(jtf4);
 		
 		jp1.add(jb1);
 		jp1.add(jb2);
@@ -70,19 +73,24 @@ public class ttt2tt extends JFrame{
 		jp2.add(jb7);
 		jp2.add(jb8);
 		
-		jp7.add(con);
+		jp7.add(jp3);
+		jp7.add(jp4);
+		jp7.add(jp5);
+		jp7.add(jp6);
 		
-	
-		jta = new JTextArea();
-		jsp = new JScrollPane(jta, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+		
+		
+		jta = new JTextArea();	
+		jsp = new JScrollPane(jta, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		jta.setLineWrap(true);
 		jta.setEditable(false);
 		
 		add(jp1, BorderLayout.NORTH);
-		add(jsp, BorderLayout.CENTER);
+		add(jsp, BorderLayout.CENTER);	
 		add(jp2, BorderLayout.SOUTH);
 		add(jp7, BorderLayout.WEST);
+		
 		
 		setSize(600, 400);
 		setLocationRelativeTo(null);

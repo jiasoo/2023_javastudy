@@ -10,7 +10,7 @@ import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 
 public class ttt1 extends JFrame{
-	JPanel jp;
+	JPanel jp1,jp2;
 	JButton jb1,jb2;
 	JTextArea jta;
 	JScrollPane jsp;
@@ -18,22 +18,27 @@ public class ttt1 extends JFrame{
 	public ttt1() {
 		super("관리자");
 		
-		jp = new JPanel();
+		jp1 = new JPanel();
+		jp2 = new JPanel();
 		
 		jb1 = new JButton("관광지 관리");
 		jb2 = new JButton("사용자 관리");
 		
-		jp.add(jb1);
-		jp.add(jb2);
+		jp1.add(jb1);
+		jp1.add(jb2);
 		
 		jta = new JTextArea();
-		jsp = new JScrollPane(jta, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+		
+		
+		jsp = new JScrollPane(jta, ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS,
 				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		jta.setLineWrap(true);
 		jta.setEditable(false);
 		
-		add(jp, BorderLayout.NORTH);
+		add(jp1, BorderLayout.NORTH);
+	
 		add(jsp, BorderLayout.CENTER);
+		
 		
 		setSize(600, 400);
 		setLocationRelativeTo(null);
